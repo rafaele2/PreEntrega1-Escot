@@ -1,11 +1,12 @@
 import React from 'react'
 import CardWidget from './CardWidget'
+import {Link} from 'react-router-dom'
 
-function NavBar() {
+function NavBar(product) {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">CompraHard</a>
+    <Link  className="navbar-brand" to={`/`}>CompraHard</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon" />
     </button>
@@ -14,14 +15,14 @@ function NavBar() {
   
       
         <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <Link className="nav-link dropdown-toggle" to={`/ItemListContainer`} role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Categorias
-          </a>
+          </Link>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="">Cpu</a></li>
-            <li><a className="dropdown-item" href="">Gpu</a></li>
-            <li><hr className="dropdown-divider" /></li>
-            <li><a className="dropdown-item" href="">Motherboards</a></li>
+            <li><Link className="dropdown-item" to={`/category/:category${product.cpu}`}>Cpu</Link></li>
+            <li><Link className="dropdown-item" to={`/category/:category${product.gpu}`}>Gpu</Link></li>
+            <li><hr className="dropdown-divider"/></li>
+            <li><Link className="dropdown-item" to={`/category/:category${product.motherboard}`}>Motherboard</Link></li>
           </ul>
         </li>
       
